@@ -1,0 +1,137 @@
+
+Conversation opened. 2 messages. 1 message unread.
+
+Skip to content
+Using Gmail with screen readers
+Meet
+Hangouts
+
+1 of 2,631
+(no subject)
+Inbox
+
+Alex Ho <alexanderho1998@gmail.com>
+Attachments
+12:12 PM (6 minutes ago)
+to me
+
+
+Attachments area
+
+Alex Ho <alexanderho1998@gmail.com>
+12:13 PM (5 minutes ago)
+to me
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity
+{
+
+    EditText coordinates;
+    TextView getCoordinates;
+    Button submit;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        coordinates = findViewById(R.id.EnterCoordinates);
+
+        getCoordinates = findViewById(R.id.coordinateDisplay);
+
+        submit = findViewById(R.id.submitButton);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getCoordinates.setText("Proceeding to: " + coordinates.getText().toString());
+                getCoordinates.setVisibility(View.VISIBLE);
+            }
+        });
+
+    }
+} 
+
+
+On Tue, Oct 19, 2021 at 12:12 PM Alex Ho <alexanderho1998@gmail.com> wrote:
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Submit"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EnterName"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <TextView
+        android:id="@+id/coordinateDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+
+        android:text=""
+        android:visibility="invisible"
+
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/submitButton"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EnterName"
+        android:layout_width="400dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <EditText
+            android:id="@+id/EnterCoordinates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="240dp"
+            android:layout_marginEnd="9dp"
+
+            android:ems="31"
+            android:hint="Enter Coordinates"
+
+            android:inputType="textCapWords"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:textColor="@android:color/holo_purple" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+message.txt
+Displaying message.txt. 
